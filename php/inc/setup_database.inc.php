@@ -101,10 +101,10 @@ $table1 = <<<sql
 CREATE TABLE IF NOT EXISTS QandA(
     query_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     query VARCHAR(255) NOT NULL,
-    query_ans VARCHAR(255);
+    query_ans VARCHAR(255));
 sql;
 
 
-if (!$conn->query($table1){
+if (!$conn->query($table1) ){
     exit("Failed to create tables in the database<br>\n\n<br>".$conn->error);
 }
