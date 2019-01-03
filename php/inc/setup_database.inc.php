@@ -105,6 +105,6 @@ CREATE TABLE IF NOT EXISTS QandA(
 sql;
 
 
-if (!$conn->query($table1){
+if (!$conn->query($table1)){
     exit("Failed to create tables in the database<br>\n\n<br>".$conn->error);
 }

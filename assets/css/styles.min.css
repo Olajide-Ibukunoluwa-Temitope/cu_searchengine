@@ -25,11 +25,13 @@ nav #search_box:hover,nav #search_box:focus{
 }
 div.m{
 	display:block;
-	vertical-align:middle
+	vertical-align:middle;
+	padding-top: 17%;
 }
 div.m div#title{
-	height:130px;
-	background-image:url("../images/cu_searchengine.png");
+	height:220px;
+	width: 100%;
+	background-image:url("../images/cu_searchengine2.png");
 	background-repeat:no-repeat;
 	background-position:center
 }

@@ -19,13 +19,13 @@
 <body>
 
 	<div class="container">
-		<div class="text-center" style="padding-top: 250px;">
-			<div class="" style="font-size: 52px;">CU Search Engine</div>
+		<div class="m">
+			<div id="title"></div>
 		</div>
 		<div class="text-center">
 			<form action="./php/resultpage.php">
                 <div class="form-group">
-                  <input name="q" type="search" class="form-control input-lg" id="search_box">
+                  <input name="q" type="search" class="form-control input-lg" id="search_box" style="border-width: 2px;">
                 </div>
 
                 <div id="search_buttons">

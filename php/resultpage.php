@@ -1,3 +1,37 @@
+<?php
+ob_start();
+
+set_time_limit(60);
+
+const included = true;
+
+require_once "inc/helpers.inc.php";
+require_once "inc/setup_database.inc.php";
+require_once "inc/search.inc.php";
+
+$get = $_GET; // shorthand access
+if (!isset($get['q']) || $get['q'] === "") {
+    header("Location: ../index.php");
+}
+
+// search query
+$query = $conn->escape_string($get['q']);
+
+// index to start at (pagination)
+$startAt = isset($get['start']) ? $get['start'] : 1;
+$startAt = ($startAt - 1) * 10;
+
+// search db
+$results = search($conn, "$query", $startAt); // returns [result, query time, totalRows] or null
+
+if (is_array($results)) {
+    $searchResult = $results[0];
+    $queryTime = $results[1];
+    $totalRows = $results[2];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
