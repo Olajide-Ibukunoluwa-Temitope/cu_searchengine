@@ -93,54 +93,7 @@ function _link($name, $start, $isCurrent=false)
 }
 
 
-/* crawl.php, start_crawler.php */
-
-// function getPageContent($url){
-//     return ($cnt = @file_get_contents($url)) ? $cnt : 0;
-// }
-
-// validates the $url and makes sure the $name isnt empty
-// function isInvalid($name, $url){
-//     return empty($name) || empty($url)
-//         || !getPageContent($url);
-// }
-
-/* crawl.php, sites.php */
-
-// convert seconds to <seconds>(seconds|minutes|hours)
-// function secToTime($s){
-//     if ($s === "incomplete") {
-//         return "<b> Incomplete! </b>";
-//     }
-
-//     $s = (int) $s;
-
-//     if ($s < 60) {
-//         return "$s second(s)";
-//     } elseif ($s <= 3600) {
-//         return (round($s / 60))." minute(s)";
-//     } else {
-//         return (round($s / 3600))." hour(s)";
-//     }
-// }
-
-/* crawl.php */
-
-// echo texts that stay on a single line
-// function progress($t){
-//     return sprintf("%s\r", $t);
-// }
-
-/* crawler.class.php */
-
-// function hasKey($arr, $key){
-//     // checks if $arr has index $key, returns the value if true
-//     // else returns false
-//     return array_key_exists($key, $arr) ? $arr[$key] : false;
-// }
-
-
-/* setup_database.php, cu_searchengine/bin */
+/* setup_database.php, CU_searchengine/bin */
 
 function prepareConfigFile($config_file)
 {

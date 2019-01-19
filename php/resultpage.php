@@ -11,7 +11,7 @@ require_once "inc/search.inc.php";
 
 $get = $_GET; // shorthand access
 if (!isset($get['q']) || $get['q'] === "") {
-    header("Location: ../index.php");
+    header("Location: ../homepage.php");
 }
 
 // search query
@@ -59,33 +59,28 @@ if (is_array($results)) {
       <div class="row">
         <div class="col-md-10">
           <div class="navbar-header">
-            <a class="navbar-brand" href="./../index.php">
-              <img width="110" height="27" src='../assets/images/cu_searchengine.png'/>
+            <a class="navbar-brand" href="./../homepage.php">
+              <img width="110" height="27" src='../assets/images/cu_searchengine2.png'/>
             </a>
           </div>
 
           <div id="navbar" class="collapse navbar-collapse">
-            <form action="" class="form-inline">
+            <form action="./resultpage.php" class="form-inline">
               <div class="form-group">
                 <input value="<?php echo $query; ?>" name="q" type="search" style="width: 400px;" class="form-control box input-lg" id="search_box">
+                <button type="submit" class="btn btn-primary" style="padding-top: 8px; padding-bottom: 8px;">search</button>
               </div>
             </form>
           </div><!--/.nav-collapse -->
         </div>
 
-        <!-- <div class="col-md-2">
-          <a class="btn btn-default index-site-button" href="sites.php" role="button">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-          Add Websites
-          </a>
-        </div> -->
       </div>
 
     </div>
   </nav>
 
 
-    <div class="container" style="width: 621px; margin-left: 12.3%;">
+    <div class="container" style="width: 631px; margin-left: 17.3%;">
       
         <?php
         if (!$results) {
@@ -109,21 +104,26 @@ if (is_array($results)) {
             if ($startAt === 0) {
                 echo "<small class='results-count'> $totalRows Result(s)  (".round($queryTime, 2)." seconds) </small> <br><br>";
             } else {
-                echo "<small class='results-count'> Page ".(($startAt/10) + 1)." of $totalRows Result(s)  (".round($queryTime, 2)." seconds) </small> <br><br>";
-            }
+                echo "<small> $totalRows Result(s)  (".round($queryTime, 2)." seconds) </small> <br> 
+                <small class='results-count'> Page ".(($startAt/10) + 1)." </small> <br><br>";
+            } 
 
             while ($row = $data->fetch_row()) {
-                $url = $row[0];
-                $title = !empty($row[1]) ? $row[1] : "$url";
-                $content = $row[2];
+                $query_id = $row[0];
+                $query = $row[1];
+                $query_ans = $row[2];
+                $title = $query;
+                $content = $query_ans;
+                $url = "./view.php?res=".$query_id."_".urlencode($title);
 
                 $displayContent = getDisplayContent($content, $query); // filter content to get parts with our query
         ?>
             </b></b></b>
             <a class='result-link' href='<?php echo $url ?>'> <span style="font-size: 18px;"> <?php echo $title ?> </span> </a>
-            <small class='result-url'><?php echo $url ?></small>
-            <span class='result-content'> <?php echo substr($displayContent, 0, 200) ?> ...</span>
-            <br><br>
+            <div>
+              <span class='result-content'> <?php echo substr($displayContent, 0, 250) ?> ...</span>
+            </div>
+            <br>
         <?php
 
             }

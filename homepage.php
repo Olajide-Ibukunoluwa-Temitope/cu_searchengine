@@ -18,24 +18,30 @@
 </head>
 <body>
 
-	<div class="container">
-		<div class="m">
-			<div id="title"></div>
-		</div>
-		<div class="text-center">
-			<form action="./php/resultpage.php">
-                <div class="form-group">
-                  <input name="q" type="search" class="form-control input-lg" id="search_box" style="border-width: 2px;">
-                </div>
+  <div>
+    <marquee>
+      <h1>Welcome To Covenant University's Private Search Engine</h1> 
+    </marquee>
+  </div>
 
-                <div id="search_buttons">
-                  <button type="submit" class="btn btn-primary btn-lg" style="padding-right: 40px; padding-left: 40px;">Search</button>
-                </div>
-            </form>
-		</div>
-	</div>
+  	<div class="container">
+  		<div class="m">
+  			<div id="title"></div>
+  		</div>
+  		<div class="text-center">
+  			<form action="./php/resultpage.php">
+                  <div class="form-group">
+                    <input name="q" type="search" class="form-control input-lg" id="search_box" style="border-width: 2px;">
+                  </div>
 
-	<script src="./assets/js/libs/jquery.min.js"></script>
+                  <div id="search_buttons">
+                    <button type="submit" class="btn btn-primary btn-lg" style="padding-right: 40px; padding-left: 40px;">Search</button>
+                  </div>
+              </form>
+  		</div>
+  	</div>
+
+  	<script src="./assets/js/libs/jquery.min.js"></script>
     <script src="./assets/js/libs/bootstrap.min.js"></script>
     <script src="./assets/js/libs/jquery.hotkeys.js"></script>
 
@@ -60,19 +66,6 @@
           $input.val(query.replace(/\s+/g, ' '));
         });
 
-
-        /* KEYPRESS */
-
-        // Ctrl+return - 'Feelink Lucky?' Shortcut
-        // $("input, html").bind('keydown', "Ctrl+return", function (){
-        //    var query = input.val();
-
-        //    input.val(query = query.replace(/\s+/g, ' '));
-           
-        //    if (query && !query.match(/^\s+$/)){
-        //       window.location = "./php/resultpage.php?q="+query+"&lucky=1";
-        //    }
-        // });
 
         // focus input `onkeypress`
         $(document).keypress(function(e) {

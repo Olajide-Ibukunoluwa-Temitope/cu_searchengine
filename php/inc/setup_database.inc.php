@@ -98,17 +98,17 @@ $conn->select_db($database);
 // create tables if not exists :)
 $table1 = <<<sql
 
-CREATE TABLE IF NOT EXISTS QandA(
+CREATE TABLE IF NOT EXISTS q_and_a(
     query_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    query VARCHAR(255) NOT NULL,
-    query_ans VARCHAR(255));
+    query VARCHAR(1000) NOT NULL,
+    query_ans VARCHAR(1000));
 sql;
 
 
-<<<<<<< HEAD
 if (!$conn->query($table1)){
-=======
-if (!$conn->query($table1) ){
->>>>>>> 335c9c37d49bde32c40f4216f036c6e16748567c
     exit("Failed to create tables in the database<br>\n\n<br>".$conn->error);
 }
+
+// if (!$conn->query($table1) || !$conn->query($table2)) {
+//     exit("Failed to create tables in the database<br>\n\n<br>".$conn->error);
+// }

@@ -1,10 +1,5 @@
 <?php
-/**
- * This file is part of the localGoogle project
- *
- * Copyright (c) 2017, Sochima Biereagu
- * Under MIT License
- */
+
 
 if (!defined('included')) {
     exit("Sorry you cannnot access this file directly");
@@ -25,8 +20,8 @@ function search($conn, $query, $startAt)
     $startAt = $conn->escape_string($startAt);
 
     $searchQuery = <<<sql
-	    SELECT query, query_ans
-	    FROM QandA
+	    SELECT query_id, query, query_ans
+	    FROM q_and_a
 	    WHERE MATCH (query, query_ans) AGAINST('$query')
 	    LIMIT $startAt, 10;
 sql;
@@ -41,8 +36,8 @@ sql;
     // fetch total rows
     // same query without LIMIT
     $resultsCount = <<<count
-	    SELECT query, query_ans
-        FROM QandA
+	    SELECT query_id, query, query_ans
+        FROM q_and_a
         WHERE MATCH (query, query_ans) AGAINST('$query')
 count;
     
@@ -62,7 +57,7 @@ count;
         // invalid query or no result
         // try different search technique
 
-        $sqlQuery = "SELECT query, query_ans FROM QandA WHERE query_ans";
+        $sqlQuery = "SELECT query_id, query, query_ans FROM q_and_a WHERE query_ans";
         $words = explode(" ", $query);
 
         for ($i = 0; $i < $count = count($words); $i += 1) {
@@ -82,7 +77,7 @@ count;
 
         // fetch total rows
         // same query without LIMIT
-        $qry = "SELECT query, query_ans FROM QandA WHERE query_ans";
+        $qry = "SELECT query_id, query, query_ans FROM q_and_a WHERE query_ans";
 
         for ($i = 0; $i < $count = count($words); $i += 1) {
             if ($i === $count - 1) {
