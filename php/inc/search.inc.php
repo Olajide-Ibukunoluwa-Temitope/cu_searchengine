@@ -97,3 +97,37 @@ count;
     
     return null; // no result
 }
+
+
+/**
+ * This function loads the database for our searched row
+ *
+ * @param [resource] $conn    mysql connection
+ * @param [int]   $query_id   row_id
+ *
+ * @return [array]             search results
+ */
+function view_result($conn, $query_id)
+{
+    $query_id = $conn->escape_string($query_id);
+
+    $searchQuery = <<<sql
+        SELECT *
+        FROM q_and_a
+        WHERE query_id = '$query_id';
+sql;
+
+    $queryTime = microtime(true); // start time
+
+    $result = $conn->query($searchQuery);
+
+    $queryTime = microtime(true) - $queryTime; // total time took
+
+    $result = boolval($result) ? $result : false;
+    
+    if ($result) {
+        return $result->fetch_row();
+    }
+    
+    return null; // no result
+}
