@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/styles.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.css">
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
     <link rel="stylesheet" href="owlcarousel/dist/assets/owl.carousel.min.css">
@@ -31,11 +32,11 @@
   		<div class="text-center">
   			<form action="./php/resultpage.php">
                   <div class="form-group">
-                    <input name="q" type="search" class="form-control input-lg" id="search_box" style="border-width: 2px;">
+                    <input name="q" type="search" class="form-control input-lg" style="font-size: 15px" id="search_box" style="border-width: 2px;">
                   </div>
 
                   <div id="search_buttons">
-                    <button type="submit" class="btn btn-primary btn-lg" style="padding-right: 40px; padding-left: 40px;">Search</button>
+                    <button type="submit" class="btn btn-primary btn-lg" style="padding-right: 60px; padding-left: 60px; padding-top: 10px; padding-bottom: 5px;"><h3>Search</h3></button>
                   </div>
               </form>
   		</div>

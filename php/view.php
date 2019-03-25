@@ -30,7 +30,8 @@ $content = $result[2];
 
 	<link rel="icon" href="../assets/images/favicon.ico">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.css">
+    <!-- <link href="../assets/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="../assets/css/styles.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -44,7 +45,9 @@ $content = $result[2];
 		<div class="col-sm-3">
 			<div class="card" style="height: 350px; background-color: #dee2e6">
 				<div class="card-body text-white">
-					<img src="../assets/images/cu_searchengine2.png" style="width: 200px; height: 100px;">
+					<a href="../homepage.php">
+						<img src="../assets/images/cu_searchengine2.jpeg" style="width: 200px; height: 100px;">
+					</a>
 					<div class="font-weight-bold" style="font-size: 30px; font-family: Times New Roman, Times, serif">
 						<span style="color: yellow;">COVENANT</span><br>
 						<span style="color: orange;">UNIVERSITY</span><br>

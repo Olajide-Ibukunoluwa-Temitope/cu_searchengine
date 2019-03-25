@@ -44,6 +44,8 @@ if (is_array($results)) {
     <link rel="icon" href="../assets/images/favicon.ico">
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/css/styles.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/bootstrap/css/bootstrap.css">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -53,22 +55,23 @@ if (is_array($results)) {
   </head>
   <body>
 
-  <nav style="position: relative; margin-bottom: 10px;" class="navbar navbar-default navbar-fixed-top">
-    <div style="padding-left: 0;" class="container">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container ml-0 pl-0">
 
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-10" style="margin-right: 80%;">
           <div class="navbar-header">
-            <a class="navbar-brand" href="./../homepage.php">
-              <img width="110" height="27" src='../assets/images/cu_searchengine2.png'/>
+            <a class="navbar-brand mt-4" href="../../homepage.php">
+              <img width="110" height="27" src='../assets/images/cu_searchengine2.jpeg'/>
             </a>
           </div>
 
           <div id="navbar" class="collapse navbar-collapse">
             <form action="./resultpage.php" class="form-inline">
               <div class="form-group">
-                <input value="<?php echo $query; ?>" name="q" type="search" style="width: 400px;" class="form-control box input-lg" id="search_box">
-                <button type="submit" class="btn btn-primary" style="padding-top: 8px; padding-bottom: 8px;">search</button>
+                <input value="<?php echo $query; ?>" name="q" type="search" style="width: 400px;" class="form-control box input-lg mr-2" id="search_box">
+                <!-- <button type="submit" class="btn btn-primary btn-lg" style="padding-top: 8px; padding-bottom: 8px;">search</button> -->
+                <button type="submit" class="btn btn-primary btn-lg" style="padding-right: 20px; padding-left: 20px; padding-top: 10px; padding-bottom: 5px;"><h4>search</h4></button>
               </div>
             </form>
           </div><!--/.nav-collapse -->
@@ -102,10 +105,10 @@ if (is_array($results)) {
              $startAt;
           
             if ($startAt === 0) {
-                echo "<small class='results-count'> $totalRows Result(s)  (".round($queryTime, 2)." seconds) </small> <br><br>";
+                echo "<span class='results-count'> $totalRows Result(s)  (".round($queryTime, 2)." seconds) </span> <br><br>";
             } else {
-                echo "<small> $totalRows Result(s)  (".round($queryTime, 2)." seconds) </small> <br> 
-                <small class='results-count'> Page ".(($startAt/10) + 1)." </small> <br><br>";
+                echo "<span> $totalRows Result(s)  (".round($queryTime, 2)." seconds) </span> <br> 
+                <span class='results-count'> Page ".(($startAt/10) + 1)." </span> <br><br>";
             } 
 
             while ($row = $data->fetch_row()) {
@@ -121,7 +124,7 @@ if (is_array($results)) {
             </b></b></b>
             <a class='result-link' href='<?php echo $url ?>'> <span style="font-size: 18px;"> <?php echo $title ?> </span> </a>
             <div>
-              <span class='result-content'> <?php echo substr($displayContent, 0, 250) ?> ...</span>
+              <span class='result-content' style="font-size: 13px;"> <?php echo substr($displayContent, 0, 250) ?> ...</span>
             </div>
             <br>
         <?php
@@ -141,6 +144,9 @@ if (is_array($results)) {
         <h3> Your search - <b> <?php echo htmlentities($GLOBALS['query']); ?> </b> - did not match any document </b> </h3>
         <br>
         <p> None of the indexed pages contains your search query. </p>
+        <a href="#">
+          <button type="button" class="btn btn-outline-success">+ Add query</button>
+        </a>
 
         <?php
 

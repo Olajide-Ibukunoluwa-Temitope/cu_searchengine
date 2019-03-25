@@ -65,7 +65,7 @@ function displayPaging($totalRows)
     $pages = round($totalRows / 10);
     $curpage = $startAt/10 + 1;
 
-    echo "<div style='text-align: center;' class='center'>"; // center pagination elm
+    echo "<div style='text-align: center; font-size:14px;' class='center'>"; // center pagination elm
 
     if ($startAt > 0) {
         echo _link("Prev", "start=".($curpage-1));

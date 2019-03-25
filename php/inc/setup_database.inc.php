@@ -101,7 +101,9 @@ $table1 = <<<sql
 CREATE TABLE IF NOT EXISTS q_and_a(
     query_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     query VARCHAR(1000) NOT NULL,
-    query_ans VARCHAR(1000));
+    query_ans VARCHAR(1000),
+    created_at DATETIME,
+    updated_at DATETIME);
 sql;
 
 
