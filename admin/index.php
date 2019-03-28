@@ -5,6 +5,8 @@ require_once "partials/_header.php";
 if(!isLoggedIn())
   redirect('./login.php', false);
 
+$user = user($conn, $_SESSION["id"]);
+
 ?>
 
 <body>
@@ -39,7 +41,7 @@ if(!isLoggedIn())
                 <span class="availability-status online"></span>             
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">David Greymaax</p>
+                <p class="mb-1 text-black"><?= $user['username'] ?></p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -48,7 +50,7 @@ if(!isLoggedIn())
                 Activity Log
               </a> -->
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="logout.php">
                 <i class="mdi mdi-logout mr-2 text-primary"></i>
                 Signout
               </a>

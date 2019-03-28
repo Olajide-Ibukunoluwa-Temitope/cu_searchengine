@@ -34,3 +34,28 @@ sql;
     
     return null; // no result
 }
+
+
+function user($conn, $id)
+{
+	$searchQuery = <<<sql
+        SELECT *
+          FROM admins
+          WHERE id = '$id';
+sql;
+
+    $queryTime = microtime(true); // start time
+
+    $result = $conn->query($searchQuery);
+
+    $queryTime = microtime(true) - $queryTime; // total time took
+
+    $result = boolval($result) ? $result : false;
+    
+    if ($result) {
+        return $result->fetch_assoc();
+    }
+    
+    throw new Exception("Error Processing Request", 1);
+    
+}
