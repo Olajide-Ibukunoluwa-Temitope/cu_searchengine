@@ -104,6 +104,7 @@ CREATE TABLE IF NOT EXISTS q_and_a(
     query_ans VARCHAR(1000),
     created_at DATETIME,
     updated_at DATETIME);
+
 sql;
 
 
@@ -111,6 +112,22 @@ if (!$conn->query($table1)){
     exit("Failed to create tables in the database<br>\n\n<br>".$conn->error);
 }
 
-// if (!$conn->query($table1) || !$conn->query($table2)) {
-//     exit("Failed to create tables in the database<br>\n\n<br>".$conn->error);
-// }
+$table2 = <<<sql
+
+CREATE TABLE IF NOT EXISTS `admins` (
+  `id` int(10) AUTO_INCREMENT PRIMARY KEY,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime NULL DEFAULT NULL,
+  `updated_at` datetime NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+sql;
+
+
+if (!$conn->query($table2)){
+    exit("Failed to create tables in the database<br>\n\n<br>".$conn->error);
+}

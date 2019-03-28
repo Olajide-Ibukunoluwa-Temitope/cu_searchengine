@@ -10,6 +10,17 @@
  * helpers functions used across cu_searchengine
  */
 
+function isLoggedIn(){
+    return !empty($_SESSION["id"]);
+}
+
+function redirect($url, $statusCode = 303)
+{
+    header('Location: ' . $url, true, $statusCode);
+
+    exit();
+}
+
 /*   search.php  */
 
 // adds backslash to regex meta characters in a string
