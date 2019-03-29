@@ -1,6 +1,6 @@
 <?php
-
-require_once "partials/_header.php";
+require_once "inc/inc.php";
+require_once "inc/partials/_header.php";
 
 if(isLoggedIn())
   redirect('./index.php', false);
@@ -76,7 +76,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 1){
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-  <?php require_once "partials/_footer.php"; ?>
+  <?php require_once "inc/partials/_footer.php"; ?>
 </body>
 
 </html>
