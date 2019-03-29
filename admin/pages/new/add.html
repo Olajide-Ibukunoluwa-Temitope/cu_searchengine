@@ -9,8 +9,11 @@
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" type="text/css" href="../../cu_searchengine/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../../../cu_searchengine/assets/bootstrap/css/bootstrap.css">
   <!-- endinject -->
+  <!-- plugin css for this page -->
+  <link rel="stylesheet" href="../../node_modules/jqvmap/dist/jqvmap.min.css" />
+  <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
@@ -22,7 +25,7 @@
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="../../index.html">
+        <a class="navbar-brand brand-logo" href="../../index.php">
           <!-- <img src="images/logo.svg" alt="logo"/> -->
           <h3>ADMIN</h3>
         </a>
@@ -58,7 +61,7 @@
                 Activity Log
               </a> -->
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="../../logout.php">
                 <i class="mdi mdi-logout mr-2 text-primary"></i>
                 Signout
               </a>
@@ -69,7 +72,7 @@
               <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
             </a>
           </li> -->
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <i class="mdi mdi-email-outline"></i>
               <span class="count-symbol bg-warning"></span>
@@ -168,7 +171,7 @@
               <div class="dropdown-divider"></div>
               <h6 class="p-3 mb-0 text-center">See all notifications</h6>
             </div>
-          </li>
+          </li> -->
           <!-- <li class="nav-item nav-logout d-none d-lg-block">
             <a class="nav-link" href="#">
               <i class="mdi mdi-power"></i>
@@ -204,7 +207,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
+            <a class="nav-link" href="../../index.php">
               <span class="menu-title text-secondary">Dashboard</span>
               <i class="mdi mdi-home menu-icon"></i>
             </a>
@@ -223,7 +226,7 @@
             </div>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="../icons/mdi.html">
+            <a class="nav-link" href="../logged_queries/mdi.html">
               <span class="menu-title text-secondary">Logged Queries</span>
               <i class="mdi mdi-contacts menu-icon"></i>
             </a>
@@ -236,13 +239,13 @@
             </a>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="../tables/basic-table.html">
+            <a class="nav-link" href="../update_query/query_view.html">
               <span class="menu-title text-secondary">Update Query</span>
               <i class="mdi mdi-table-large menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../forms/basic_elements.html">
+            <a class="nav-link" href="../new/add.html">
               <span class="menu-title text-secondary">Edit</span>
               <i class="mdi mdi-format-list-bulleted menu-icon"></i>
             </a>

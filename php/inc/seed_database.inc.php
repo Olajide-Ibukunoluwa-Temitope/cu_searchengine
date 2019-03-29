@@ -60,7 +60,7 @@ $conn->select_db($database);
 $tablesQuery = <<<sql
 
 INSERT INTO `admins` (`id`, `username`, `email`, `image`, `password`, `remember_token`, `created_at`, `updated_at`) 
-VALUES (NULL, 'admin', 'admin@cu.com', NULL, 'admin', NULL, '2019-03-28 00:00:00', '2019-03-28 00:00:00');
+VALUES (NULL, 'admin', 'admin@cu.edu.ng', NULL, 'admin', NULL, '2019-03-28 00:00:00', '2019-03-28 00:00:00');
 
 sql;
 

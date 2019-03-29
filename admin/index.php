@@ -14,11 +14,11 @@ $user = user($conn, $_SESSION["id"]);
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html">
+        <a class="navbar-brand brand-logo" href="index.php">
           <!-- <img src="images/logo.svg" alt="logo"/> -->
           <h3>ADMIN</h3>
         </a>
-        <a class="navbar-brand brand-logo-mini" href="index.html">
+        <a class="navbar-brand brand-logo-mini" href="index.php">
           <!-- <img src="images/logo-mini.svg" alt="logo"/> -->
         </a>
       </div>
@@ -61,7 +61,7 @@ $user = user($conn, $_SESSION["id"]);
               <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
             </a>
           </li> -->
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <i class="mdi mdi-email-outline"></i>
               <span class="count-symbol bg-warning"></span>
@@ -160,7 +160,7 @@ $user = user($conn, $_SESSION["id"]);
               <div class="dropdown-divider"></div>
               <h6 class="p-3 mb-0 text-center">See all notifications</h6>
             </div>
-          </li>
+          </li> -->
           <!-- <li class="nav-item nav-logout d-none d-lg-block">
             <a class="nav-link" href="#">
               <i class="mdi mdi-power"></i>
@@ -196,7 +196,7 @@ $user = user($conn, $_SESSION["id"]);
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index.php">
               <span class="menu-title text-secondary">Dashboard</span>
               <i class="mdi mdi-home menu-icon"></i>
             </a>
@@ -215,7 +215,7 @@ $user = user($conn, $_SESSION["id"]);
             </div>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="pages/logged_queries/mdi.html">
               <span class="menu-title text-secondary">Logged Queries</span>
               <i class="mdi mdi-contacts menu-icon"></i>
             </a>
@@ -228,7 +228,7 @@ $user = user($conn, $_SESSION["id"]);
             </a>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="pages/update_query/query_view.html">
               <span class="menu-title text-secondary">Update Query</span>
               <i class="mdi mdi-table-large menu-icon"></i>
             </a>
@@ -311,7 +311,7 @@ $user = user($conn, $_SESSION["id"]);
                   <h4 class="font-weight-normal mb-3">Successful Searches
                     <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                   </h4>
-                  <h2 class="mb-5">200</h2>
+                  <h2 class="mb-5">15</h2>
                   <!-- <h6 class="card-text">Increased by 60%</h6> -->
                 </div>
               </div>
@@ -323,7 +323,7 @@ $user = user($conn, $_SESSION["id"]);
                   <h4 class="font-weight-normal mb-3">Unsuccessful Searches
                     <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                   </h4>
-                  <h2 class="mb-5">500</h2>
+                  <h2 class="mb-5">25</h2>
                   <!-- <h6 class="card-text">Decreased by 10%</h6> -->
                 </div>
               </div>
@@ -335,7 +335,7 @@ $user = user($conn, $_SESSION["id"]);
                   <h4 class="font-weight-normal mb-3">Logged Queries
                     <i class="mdi mdi-diamond mdi-24px float-right"></i>
                   </h4>
-                  <h2 class="mb-5">150</h2>
+                  <h2 class="mb-5">18</h2>
                   <!-- <h6 class="card-text">Increased by 5%</h6> -->
                 </div>
               </div>
@@ -382,7 +382,7 @@ $user = user($conn, $_SESSION["id"]);
                             Status
                           </th> -->
                           <th>
-                            Time/Date
+                            Date
                           </th>
                           <!-- <th>
                             Tracking ID
@@ -396,13 +396,13 @@ $user = user($conn, $_SESSION["id"]);
                             David Grey
                           </td> -->
                           <td>
-                            Fund is not recieved
+                            How much is food in cafe
                           </td>
                          <!--  <td>
                             <label class="badge badge-gradient-success">DONE</label>
                           </td> -->
                           <td>
-                            Dec 5, 2017
+                            March 18, 2019
                           </td>
                          <!--  <td>
                             WD-12345
@@ -414,13 +414,13 @@ $user = user($conn, $_SESSION["id"]);
                             Stella Johnson
                           </td> -->
                           <td>
-                            High loading time
+                            Who is the current vice chancellor
                           </td>
                           <!-- <td>
                             <label class="badge badge-gradient-warning">PROGRESS</label>
                           </td> -->
                           <td>
-                            Dec 12, 2017
+                            March 21, 2019
                           </td>
                           <!-- <td>
                             WD-12346
@@ -432,13 +432,13 @@ $user = user($conn, $_SESSION["id"]);
                             Marina Michel
                           </td> -->
                           <td>
-                            Website down for one week
+                            When is convocation
                           </td>
                           <!-- <td>
                             <label class="badge badge-gradient-info">ON HOLD</label>
                           </td> -->
                           <td>
-                            Dec 16, 2017
+                            March 25, 2019
                           </td>
                           <!-- <td>
                             WD-12347
@@ -450,13 +450,13 @@ $user = user($conn, $_SESSION["id"]);
                             John Doe
                           </td> -->
                           <td>
-                            Loosing control on server
+                            Who is the dean of engineering
                           </td>
                           <!-- <td>
                             <label class="badge badge-gradient-danger">REJECTED</label>
                           </td> -->
                           <td>
-                            Dec 3, 2017
+                            March 28, 201
                           </td>
                           <!-- <td>
                             WD-12348
@@ -538,10 +538,10 @@ $user = user($conn, $_SESSION["id"]);
                             1
                           </td>
                           <td>
-                            Herman Beck
+                            When are we resuming
                           </td>
                           <td>
-                            May 15, 2015
+                            March 15, 2019
                           </td>
                           <!-- <td>
                             <div class="progress">
@@ -554,10 +554,10 @@ $user = user($conn, $_SESSION["id"]);
                             2
                           </td>
                           <td>
-                            Messsy Adam
+                            When is mid-semester test
                           </td>
                           <td>
-                            Jul 01, 2015
+                            March 19, 2019
                           </td>
                           <!-- <td>
                             <div class="progress">
@@ -570,10 +570,10 @@ $user = user($conn, $_SESSION["id"]);
                             3
                           </td>
                           <td>
-                            John Richards
+                            When is test starting
                           </td>
                           <td>
-                            Apr 12, 2015
+                            March 21, 2019
                           </td>
                          <!--  <td>
                             <div class="progress">
@@ -586,10 +586,10 @@ $user = user($conn, $_SESSION["id"]);
                             4
                           </td>
                           <td>
-                            Peter Meggik
+                            Who is the dean of student affairs
                           </td>
                           <td>
-                            May 15, 2015
+                            March 22, 2019
                           </td>
                           <!-- <td>
                             <div class="progress">
@@ -602,32 +602,17 @@ $user = user($conn, $_SESSION["id"]);
                             5
                           </td>
                           <td>
-                            Edward
+                            How do i borrow books from the library
                           </td>
                           <td>
-                            May 03, 2015
+                            March 22, 2019
                           </td>
                           <!-- <td>
                             <div class="progress">
                               <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                           </td> -->
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Ronald
-                          </td>
-                          <td>
-                            Jun 05, 2015
-                          </td>
-                          <!-- <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td> -->
+                       
                         </tr>
                       </tbody>
                     </table>

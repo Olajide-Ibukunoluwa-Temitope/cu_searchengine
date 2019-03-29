@@ -58,12 +58,12 @@ if(isset($_POST['submit']) && $_POST['submit'] == 1){
                   <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" name="submit" value="1" type="submit">SIGN IN</button>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
+                 <!--  <div class="form-check">
                     <label class="form-check-label text-muted">
                       <input type="checkbox" class="form-check-input">
                       Keep me signed in
                     </label>
-                  </div>
+                  </div> -->
                   <a href="#" class="auth-link text-black">Forgot password?</a>
                 </div>
               </form>
