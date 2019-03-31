@@ -54,7 +54,7 @@ $user = user($conn, $_SESSION["id"]);
                   <h4 class="font-weight-normal mb-3">Successful Searches
                     <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                   </h4>
-                  <h2 class="mb-5">200</h2>
+                  <h2 class="mb-5">18</h2>
                   <!-- <h6 class="card-text">Increased by 60%</h6> -->
                 </div>
               </div>
@@ -66,7 +66,7 @@ $user = user($conn, $_SESSION["id"]);
                   <h4 class="font-weight-normal mb-3">Unsuccessful Searches
                     <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                   </h4>
-                  <h2 class="mb-5">500</h2>
+                  <h2 class="mb-5">20</h2>
                   <!-- <h6 class="card-text">Decreased by 10%</h6> -->
                 </div>
               </div>
@@ -78,7 +78,7 @@ $user = user($conn, $_SESSION["id"]);
                   <h4 class="font-weight-normal mb-3">Logged Queries
                     <i class="mdi mdi-diamond mdi-24px float-right"></i>
                   </h4>
-                  <h2 class="mb-5">150</h2>
+                  <h2 class="mb-5">15</h2>
                   <!-- <h6 class="card-text">Increased by 5%</h6> -->
                 </div>
               </div>
@@ -139,13 +139,13 @@ $user = user($conn, $_SESSION["id"]);
                             David Grey
                           </td> -->
                           <td>
-                            Fund is not recieved
+                            How much is food in cafe
                           </td>
                          <!--  <td>
                             <label class="badge badge-gradient-success">DONE</label>
                           </td> -->
                           <td>
-                            Dec 5, 2017
+                            March 18, 2019
                           </td>
                          <!--  <td>
                             WD-12345
@@ -157,13 +157,13 @@ $user = user($conn, $_SESSION["id"]);
                             Stella Johnson
                           </td> -->
                           <td>
-                            High loading time
+                            Who is the current vice chancellor
                           </td>
                           <!-- <td>
                             <label class="badge badge-gradient-warning">PROGRESS</label>
                           </td> -->
                           <td>
-                            Dec 12, 2017
+                            March 21, 2019
                           </td>
                           <!-- <td>
                             WD-12346
@@ -175,13 +175,13 @@ $user = user($conn, $_SESSION["id"]);
                             Marina Michel
                           </td> -->
                           <td>
-                            Website down for one week
+                            When is convocation
                           </td>
                           <!-- <td>
                             <label class="badge badge-gradient-info">ON HOLD</label>
                           </td> -->
                           <td>
-                            Dec 16, 2017
+                            March 25, 2019
                           </td>
                           <!-- <td>
                             WD-12347
@@ -193,13 +193,13 @@ $user = user($conn, $_SESSION["id"]);
                             John Doe
                           </td> -->
                           <td>
-                            Loosing control on server
+                            Who is the dean of engineering
                           </td>
                           <!-- <td>
                             <label class="badge badge-gradient-danger">REJECTED</label>
                           </td> -->
                           <td>
-                            Dec 3, 2017
+                            March 28, 2019
                           </td>
                           <!-- <td>
                             WD-12348
@@ -281,10 +281,10 @@ $user = user($conn, $_SESSION["id"]);
                             1
                           </td>
                           <td>
-                            Herman Beck
+                            When are we resuming
                           </td>
                           <td>
-                            May 15, 2015
+                            March 15, 2019
                           </td>
                           <!-- <td>
                             <div class="progress">
@@ -297,10 +297,10 @@ $user = user($conn, $_SESSION["id"]);
                             2
                           </td>
                           <td>
-                            Messsy Adam
+                            When is mid-semester test
                           </td>
                           <td>
-                            Jul 01, 2015
+                            March 19, 2019
                           </td>
                           <!-- <td>
                             <div class="progress">
@@ -313,10 +313,10 @@ $user = user($conn, $_SESSION["id"]);
                             3
                           </td>
                           <td>
-                            John Richards
+                            When is test starting
                           </td>
                           <td>
-                            Apr 12, 2015
+                            March 21, 2019
                           </td>
                          <!--  <td>
                             <div class="progress">
@@ -329,10 +329,10 @@ $user = user($conn, $_SESSION["id"]);
                             4
                           </td>
                           <td>
-                            Peter Meggik
+                            Who is the dean of student affairs
                           </td>
                           <td>
-                            May 15, 2015
+                            March 22, 2019
                           </td>
                           <!-- <td>
                             <div class="progress">
@@ -345,10 +345,10 @@ $user = user($conn, $_SESSION["id"]);
                             5
                           </td>
                           <td>
-                            Edward
+                            How do i borrow books from the library
                           </td>
                           <td>
-                            May 03, 2015
+                            March 22, 2019
                           </td>
                           <!-- <td>
                             <div class="progress">
@@ -356,22 +356,7 @@ $user = user($conn, $_SESSION["id"]);
                             </div>
                           </td> -->
                         </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Ronald
-                          </td>
-                          <td>
-                            Jun 05, 2015
-                          </td>
-                          <!-- <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td> -->
-                        </tr>
+                       
                       </tbody>
                     </table>
                   </div>

@@ -100,7 +100,7 @@ count;
 
     $insertQuery = <<<sql
         INSERT INTO q_and_a(query, created_at, updated_at)
-        VALUES($query, $now, $now);
+        VALUES('$query', '$now', '$now');
 sql;
 
     $conn->query($insertQuery);

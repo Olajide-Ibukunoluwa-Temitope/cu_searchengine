@@ -37,7 +37,21 @@ $queries = queries($conn);
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Queries</h4>
+                  <div class="row">
+                    <div class="col-sm-9 col-md-9">
+                      <h4 class="card-title text-left mt-1">Queries</h4>
+                    </div>
+                    
+                    <div class="col-sm-3 col-md-3 text-right">
+                      <input type="search" name="admin_search" class="form-control" placeholder="Search">
+                    </div>
+                  </div>
+                  
+                  <!-- <div class="text-right">
+                    xxx
+                     <input type="search" name="admin_search" class="form-control" style="width: 150px;">
+                  </div> -->
+                 
                   <p class="card-description">
                   </p>
                   <table class="table">
