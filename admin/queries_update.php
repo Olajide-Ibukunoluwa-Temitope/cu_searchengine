@@ -22,7 +22,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 1){
     $result = updateQuery($conn, $query_id, $query_q, $query_ans);
 
     if($result){
-      redirect(BASE_URL.'/queries_view.php?id='.$result, false);
+      redirect(BASE_URL.'/queries_view.php?id='.$query_id, false);
     }
 
     $error = "some thing went wrong";
