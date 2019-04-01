@@ -72,7 +72,7 @@ $queries = queries($conn);
                           <td><?= $cnt ?></td>
                           <td colspan="2">
                             <?= $row[1] ?>
-                            <p><?= substr($row[2], 0, 50) ?></p>
+                            <p><?= substr($row[2], 0, 50) ?>...</p>
                           </td>
                           <td style="width: 150px">
                             <a href="<?= BASE_URL.'/queries_view.php?id='.$row[0] ?>"><i class="mdi mdi-eye"></i> View</a>
@@ -85,6 +85,219 @@ $queries = queries($conn);
                       ?>
                     </tbody>
                   </table>
+                  
+                </div>
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Logged Queries</h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <!-- <th>
+                            Assignee
+                          </th> -->
+                          <th>
+                            Query
+                          </th>
+                          <!-- <th>
+                            Status
+                          </th> -->
+                          <th>
+                            Time/Date
+                          </th>
+                          <!-- <th>
+                            Tracking ID
+                          </th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <!-- <td>
+                            <img src="images/faces/face1.jpg" class="mr-2" alt="image">
+                            David Grey
+                          </td> -->
+                          <td>
+                            How much is food in cafe
+                          </td>
+                         <!--  <td>
+                            <label class="badge badge-gradient-success">DONE</label>
+                          </td> -->
+                          <td>
+                            March 18, 2019
+                          </td>
+                         <!--  <td>
+                            WD-12345
+                          </td> -->
+                        </tr>
+                        <tr>
+                         <!--  <td>
+                            <img src="images/faces/face2.jpg" class="mr-2" alt="image">
+                            Stella Johnson
+                          </td> -->
+                          <td>
+                            Who is the current vice chancellor
+                          </td>
+                          <!-- <td>
+                            <label class="badge badge-gradient-warning">PROGRESS</label>
+                          </td> -->
+                          <td>
+                            March 21, 2019
+                          </td>
+                          <!-- <td>
+                            WD-12346
+                          </td> -->
+                        </tr>
+                        <tr>
+                          <!-- <td>
+                            <img src="images/faces/face3.jpg" class="mr-2" alt="image">
+                            Marina Michel
+                          </td> -->
+                          <td>
+                            When is convocation
+                          </td>
+                          <!-- <td>
+                            <label class="badge badge-gradient-info">ON HOLD</label>
+                          </td> -->
+                          <td>
+                            March 25, 2019
+                          </td>
+                          <!-- <td>
+                            WD-12347
+                          </td> -->
+                        </tr>
+                        <tr>
+                          <!-- <td>
+                            <img src="images/faces/face4.jpg" class="mr-2" alt="image">
+                            John Doe
+                          </td> -->
+                          <td>
+                            Who is the dean of engineering
+                          </td>
+                          <!-- <td>
+                            <label class="badge badge-gradient-danger">REJECTED</label>
+                          </td> -->
+                          <td>
+                            March 28, 2019
+                          </td>
+                          <!-- <td>
+                            WD-12348
+                          </td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Requested Queries</h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <!-- <th>
+                            Assignee
+                          </th> -->
+                          <th>
+                            Query
+                          </th>
+                          <!-- <th>
+                            Status
+                          </th> -->
+                          <th>
+                            Time/Date
+                          </th>
+                          <!-- <th>
+                            Tracking ID
+                          </th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <!-- <td>
+                            <img src="images/faces/face1.jpg" class="mr-2" alt="image">
+                            David Grey
+                          </td> -->
+                          <td>
+                            How much is food in cafe
+                          </td>
+                         <!--  <td>
+                            <label class="badge badge-gradient-success">DONE</label>
+                          </td> -->
+                          <td>
+                            March 18, 2019
+                          </td>
+                         <!--  <td>
+                            WD-12345
+                          </td> -->
+                        </tr>
+                        <tr>
+                         <!--  <td>
+                            <img src="images/faces/face2.jpg" class="mr-2" alt="image">
+                            Stella Johnson
+                          </td> -->
+                          <td>
+                            Who is the current vice chancellor
+                          </td>
+                          <!-- <td>
+                            <label class="badge badge-gradient-warning">PROGRESS</label>
+                          </td> -->
+                          <td>
+                            March 21, 2019
+                          </td>
+                          <!-- <td>
+                            WD-12346
+                          </td> -->
+                        </tr>
+                        <tr>
+                          <!-- <td>
+                            <img src="images/faces/face3.jpg" class="mr-2" alt="image">
+                            Marina Michel
+                          </td> -->
+                          <td>
+                            When is convocation
+                          </td>
+                          <!-- <td>
+                            <label class="badge badge-gradient-info">ON HOLD</label>
+                          </td> -->
+                          <td>
+                            March 25, 2019
+                          </td>
+                          <!-- <td>
+                            WD-12347
+                          </td> -->
+                        </tr>
+                        <tr>
+                          <!-- <td>
+                            <img src="images/faces/face4.jpg" class="mr-2" alt="image">
+                            John Doe
+                          </td> -->
+                          <td>
+                            Who is the dean of engineering
+                          </td>
+                          <!-- <td>
+                            <label class="badge badge-gradient-danger">REJECTED</label>
+                          </td> -->
+                          <td>
+                            March 28, 2019
+                          </td>
+                          <!-- <td>
+                            WD-12348
+                          </td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
