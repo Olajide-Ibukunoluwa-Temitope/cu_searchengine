@@ -35,6 +35,112 @@ sql;
     return null; // no result
 }
 
+function requests($conn, $limit = 50, $offset = 0, $page = 1)
+{
+    $search = [];
+    $offset = $conn->escape_string($offset);
+    $limit = $conn->escape_string($limit);
+
+    if($page > 1){
+        $offset = ($page - 1) * $limit;
+    }
+
+    $searchQuery = <<<sql
+        SELECT id, query, created_at
+        FROM requests
+        LIMIT $offset, $limit;
+sql;
+
+    $queryTime = microtime(true); // start time
+
+    $results = $conn->query($searchQuery);
+
+    $queryTime = microtime(true) - $queryTime; // total time took
+
+
+    // fetch total rows
+    // same query without LIMIT
+    $resultsCount = <<<count
+        SELECT id, query
+        FROM requests
+count;
+    
+    $resultsCount = $conn->query($resultsCount);
+
+    $results = boolval($results) ? $results : false;
+    if ($results) {
+        if ($results->num_rows > 0) {
+            return[
+                'data' => $results,
+                'page_count' => $results->num_rows,
+                'per_page' => $limit,
+                'page' => $page,
+                'total_count' => $resultsCount->num_rows,
+                'search' => $search
+            ];
+        }
+    }
+
+    return null; // no result
+}
+
+function viewRequest($conn, $query_id)
+{
+    $$query_id = $conn->escape_string($query_id);
+
+    $searchQuery = <<<sql
+        SELECT *
+          FROM requests
+          WHERE id = '$query_id';
+sql;
+
+    $queryTime = microtime(true); // start time
+
+    $result = $conn->query($searchQuery);
+
+    $queryTime = microtime(true) - $queryTime; // total time took
+
+    $result = boolval($result) ? $result : false;
+    
+    if ($result) {
+        return $result->fetch_assoc();
+    }
+
+    return null;
+}
+
+function deleteRequest($conn, $query_id)
+{
+    $now = date('Y-m-d H:i:s');
+    $query_id = $conn->escape_string($query_id);
+
+    $insertQuery = <<<sql
+        DELETE FROM `requests` WHERE `id` = $query_id;
+sql;
+
+    return $conn->query($insertQuery);
+}
+
+function answerRequest($conn, $query_id, $query, $query_ans)
+{
+    $now = date('Y-m-d H:i:s');
+    $id = $conn->escape_string($query_id);
+    $query = $conn->escape_string($query);
+    $query_ans = $conn->escape_string($query_ans);
+
+    $insertQuery = <<<sql
+        UPDATE requests SET `is_answered` = '1' WHERE `id` = $id;
+sql;
+
+    $result = $conn->query($insertQuery);
+
+    if($result){
+        return addQuery($conn, $query, $query_ans);
+    }
+
+    return null;
+}
+
 
 function queries($conn, $limit = 50, $offset = 0, $page = 1)
 {
@@ -47,7 +153,7 @@ function queries($conn, $limit = 50, $offset = 0, $page = 1)
     }
 
     $searchQuery = <<<sql
-        SELECT query_id, query, query_ans
+        SELECT query_id, query, query_ans, created_at
         FROM q_and_a
         LIMIT $offset, $limit;
 sql;

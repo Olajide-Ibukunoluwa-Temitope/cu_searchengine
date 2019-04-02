@@ -144,7 +144,7 @@ if (is_array($results)) {
         <h3> Your search - <b> <?php echo htmlentities($GLOBALS['query']); ?> </b> - did not match any document </b> </h3>
         <br>
         <p> None of the indexed pages contains your search query. </p>
-        <a href="#">
+        <a href="./addresult.php?q=<?php echo ($GLOBALS['query']); ?>">
           <button type="button" class="btn btn-outline-success">+ Add query</button>
         </a>
 

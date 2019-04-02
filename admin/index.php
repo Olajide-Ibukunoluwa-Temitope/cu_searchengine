@@ -6,6 +6,8 @@ if(!isLoggedIn())
   redirect('./login.php', false);
 
 $user = user($conn, $_SESSION["id"]);
+$queries = queries($conn, 5);
+$requests = requests($conn, 5);
 
 ?>
 
@@ -20,16 +22,6 @@ $user = user($conn, $_SESSION["id"]);
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-         <!--  <div class="row">
-            <div class="col-12">
-              <span class="d-flex align-items-center purchase-popup">
-                <p>Like what you see? Check out our premium version for more.</p>
-                <a href="https://github.com/BootstrapDash/PurpleAdmin-Free-Admin-Template" target="_blank" class="btn ml-auto download-button">Download Free Version</a>
-                <a href="https://www.bootstrapdash.com/product/purple-bootstrap-4-admin-template/" target="_blank" class="btn purchase-button">Upgrade To Pro</a>
-                <i class="mdi mdi-close popup-dismiss"></i>
-              </span>
-            </div>
-          </div> -->
           <div class="page-header">
             <h3 class="page-title">
               <span class="page-title-icon bg-gradient-primary text-white mr-2">
@@ -37,14 +29,6 @@ $user = user($conn, $_SESSION["id"]);
               </span>
               Dashboard
             </h3>
-           <!--  <nav aria-label="breadcrumb">
-              <ul class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">
-                  <span></span>Overview
-                  <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                </li>
-              </ul>
-            </nav> -->
           </div>
           <div class="row">
             <div class="col-md-4 stretch-card grid-margin">
@@ -55,7 +39,6 @@ $user = user($conn, $_SESSION["id"]);
                     <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-5">18</h2>
-                  <!-- <h6 class="card-text">Increased by 60%</h6> -->
                 </div>
               </div>
             </div>
@@ -66,7 +49,7 @@ $user = user($conn, $_SESSION["id"]);
                   <h4 class="font-weight-normal mb-3">Logged Searches
                     <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                   </h4>
-                  <h2 class="mb-5">20</h2>
+                  <h2 class="mb-5"><?= empty($queries)? 0 : $queries['total_count'] ?></h2>
                   <!-- <h6 class="card-text">Decreased by 10%</h6> -->
                 </div>
               </div>
@@ -78,34 +61,11 @@ $user = user($conn, $_SESSION["id"]);
                   <h4 class="font-weight-normal mb-3">Requested Queries
                     <i class="mdi mdi-diamond mdi-24px float-right"></i>
                   </h4>
-                  <h2 class="mb-5">15</h2>
-                  <!-- <h6 class="card-text">Increased by 5%</h6> -->
+                  <h2 class="mb-5"><?= empty($requests)? 0 : $requests['total_count'] ?></h2>
                 </div>
               </div>
             </div>
           </div>
-         <!--  <div class="row">
-            <div class="col-md-7 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <div class="clearfix">
-                    <h4 class="card-title float-left">Visit And Sales Statistics</h4>
-                    <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>                                     
-                  </div>
-                  <canvas id="visit-sale-chart" class="mt-4"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Traffic Sources</h4>
-                  <canvas id="traffic-chart"></canvas>
-                  <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>                                                      
-                </div>
-              </div>
-            </div>
-          </div> -->
           <div class="row">
             <div class="col-12 grid-margin">
               <div class="card">
@@ -115,96 +75,38 @@ $user = user($conn, $_SESSION["id"]);
                     <table class="table">
                       <thead>
                         <tr>
-                          <!-- <th>
-                            Assignee
-                          </th> -->
                           <th>
                             Query
                           </th>
-                          <!-- <th>
-                            Status
-                          </th> -->
                           <th>
                             Time/Date
                           </th>
-                          <!-- <th>
-                            Tracking ID
-                          </th> -->
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+                        if(!empty($queries)):
+                        while ($row = $queries['data']->fetch_row()):
+                          
+                      ?>
                         <tr>
-                          <!-- <td>
-                            <img src="images/faces/face1.jpg" class="mr-2" alt="image">
-                            David Grey
-                          </td> -->
-                          <td>
-                            How much is food in cafe
-                          </td>
-                         <!--  <td>
-                            <label class="badge badge-gradient-success">DONE</label>
-                          </td> -->
-                          <td>
-                            March 18, 2019
-                          </td>
-                         <!--  <td>
-                            WD-12345
-                          </td> -->
+                          <td><?= $row[1] ?></td>
+                          <td><?= date('M d, Y', strtotime($row[3])) ?></td>
                         </tr>
-                        <tr>
-                         <!--  <td>
-                            <img src="images/faces/face2.jpg" class="mr-2" alt="image">
-                            Stella Johnson
-                          </td> -->
+                      <?php
+                        endwhile;
+                      else:
+                      ?>
+
+                       <tr>
                           <td>
-                            Who is the current vice chancellor
+                            Nothing here
                           </td>
-                          <!-- <td>
-                            <label class="badge badge-gradient-warning">PROGRESS</label>
-                          </td> -->
-                          <td>
-                            March 21, 2019
-                          </td>
-                          <!-- <td>
-                            WD-12346
-                          </td> -->
                         </tr>
-                        <tr>
-                          <!-- <td>
-                            <img src="images/faces/face3.jpg" class="mr-2" alt="image">
-                            Marina Michel
-                          </td> -->
-                          <td>
-                            When is convocation
-                          </td>
-                          <!-- <td>
-                            <label class="badge badge-gradient-info">ON HOLD</label>
-                          </td> -->
-                          <td>
-                            March 25, 2019
-                          </td>
-                          <!-- <td>
-                            WD-12347
-                          </td> -->
-                        </tr>
-                        <tr>
-                          <!-- <td>
-                            <img src="images/faces/face4.jpg" class="mr-2" alt="image">
-                            John Doe
-                          </td> -->
-                          <td>
-                            Who is the dean of engineering
-                          </td>
-                          <!-- <td>
-                            <label class="badge badge-gradient-danger">REJECTED</label>
-                          </td> -->
-                          <td>
-                            March 28, 2019
-                          </td>
-                          <!-- <td>
-                            WD-12348
-                          </td> -->
-                        </tr>
+
+                      <?php
+                        endif;
+                      ?>
                       </tbody>
                     </table>
                   </div>
@@ -212,46 +114,6 @@ $user = user($conn, $_SESSION["id"]);
               </div>
             </div>
           </div>
-          <!-- <div class="row">
-            <div class="col-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Recent Updates</h4>
-                  <div class="d-flex">
-                    <div class="d-flex align-items-center mr-4 text-muted font-weight-light">
-                      <i class="mdi mdi-account-outline icon-sm mr-2"></i>
-                      <span>jack Menqu</span>
-                    </div>
-                    <div class="d-flex align-items-center text-muted font-weight-light">
-                      <i class="mdi mdi-clock icon-sm mr-2"></i>
-                      <span>October 3rd, 2018</span>
-                    </div>
-                  </div>
-                  <div class="row mt-3">
-                    <div class="col-6 pr-1">
-                      <img src="images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="images/dashboard/img_4.jpg" class="mw-100 w-100 rounded" alt="image">
-                    </div>
-                    <div class="col-6 pl-1">
-                      <img src="images/dashboard/img_2.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="images/dashboard/img_3.jpg" class="mw-100 w-100 rounded" alt="image">
-                    </div>
-                  </div>
-                  <div class="d-flex mt-5 align-items-top">
-                    <img src="images/faces/face3.jpg" class="img-sm rounded-circle mr-3" alt="image">
-                    <div class="mb-0 flex-grow">
-                      <h5 class="mr-2 mb-2">School Website - Authentication Module.</h5>
-                      <p class="mb-0 font-weight-light">It is a long established fact that a reader will be distracted by the readable
-                        content of a page.</p>
-                    </div>
-                    <div class="ml-auto">
-                      <i class="mdi mdi-heart-outline text-muted"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
           <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
@@ -270,92 +132,35 @@ $user = user($conn, $_SESSION["id"]);
                           <th>
                             Date
                           </th>
-                          <!-- <th>
-                            Progress
-                          </th> -->
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+                        if(!empty($requests)):
+                          $cnt = 1;
+                          while ($row = $requests['data']->fetch_row()):
+                          
+                      ?>
                         <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            When are we resuming
-                          </td>
-                          <td>
-                            March 15, 2019
-                          </td>
-                          <!-- <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td> -->
+                          <td><?= $cnt ?></td>
+                          <td><?= $row[1] ?></td>
+                          <td><?= date('M d, Y', strtotime($row[2])) ?></td>
                         </tr>
-                        <tr>
+                      <?php
+                        $cnt++;
+                        endwhile;
+                      else:
+                      ?>
+
+                       <tr>
                           <td>
-                            2
+                            Nothing here
                           </td>
-                          <td>
-                            When is mid-semester test
-                          </td>
-                          <td>
-                            March 19, 2019
-                          </td>
-                          <!-- <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td> -->
                         </tr>
-                        <tr>
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            When is test starting
-                          </td>
-                          <td>
-                            March 21, 2019
-                          </td>
-                         <!--  <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td> -->
-                        </tr>
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Who is the dean of student affairs
-                          </td>
-                          <td>
-                            March 22, 2019
-                          </td>
-                          <!-- <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td> -->
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            How do i borrow books from the library
-                          </td>
-                          <td>
-                            March 22, 2019
-                          </td>
-                          <!-- <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td> -->
-                        </tr>
+
+                      <?php
+                        endif;
+                      ?>
                        
                       </tbody>
                     </table>

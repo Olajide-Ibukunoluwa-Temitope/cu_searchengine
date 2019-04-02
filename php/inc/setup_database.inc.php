@@ -131,3 +131,20 @@ sql;
 if (!$conn->query($table2)){
     exit("Failed to create tables in the database<br>\n\n<br>".$conn->error);
 }
+
+$table3 = <<<sql
+
+CREATE TABLE IF NOT EXISTS `requests` (
+  `id` int(10) AUTO_INCREMENT PRIMARY KEY,
+  `query` VARCHAR(1000) NOT NULL,
+  `is_answered` TINYINT NOT NULL DEFAULT '0',
+  `created_at` datetime NULL DEFAULT NULL,
+  `updated_at` datetime NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+sql;
+
+
+if (!$conn->query($table3)){
+    exit("Failed to create tables in the database<br>\n\n<br>".$conn->error);
+}

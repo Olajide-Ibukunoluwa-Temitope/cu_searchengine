@@ -141,3 +141,31 @@ sql;
     
     return null; // no result
 }
+
+/**
+ * This function loads the database for our searched row
+ *
+ * @param [resource] $conn    mysql connection
+ * @param [int]   $query_id   row_id
+ *
+ * @return [array]             search results
+ */
+function add_request($conn, $query)
+{
+    $now = date('Y-m-d H:i:s');
+    $query = $conn->escape_string($query);
+
+    $insertQuery = <<<sql
+        INSERT INTO requests(query, created_at, updated_at)
+        VALUES('$query', '$now', '$now');
+sql;
+
+    $result = $conn->query($insertQuery);
+
+    if($result){
+        return $conn->insert_id;
+    }
+
+    return null;
+}
+
