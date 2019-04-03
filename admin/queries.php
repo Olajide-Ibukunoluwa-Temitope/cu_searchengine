@@ -6,7 +6,7 @@ if(!isLoggedIn())
   redirect('./login.php', false);
 
 $user = user($conn, $_SESSION["id"]);
-$queries = queries($conn);
+$queries = queries($conn, 500);
 
 //var_dump($queries); exit;
 
@@ -37,15 +37,6 @@ $queries = queries($conn);
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-9 col-md-9">
-                      <h4 class="card-title text-left mt-1">Queries</h4>
-                    </div>
-                    
-                    <div class="col-sm-3 col-md-3 text-right">
-                      <input type="search" name="admin_search" class="form-control" placeholder="Search">
-                    </div>
-                  </div>
                   
                   <!-- <div class="text-right">
                     xxx
@@ -54,37 +45,42 @@ $queries = queries($conn);
                  
                   <p class="card-description">
                   </p>
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th colspan="2">Query and answer</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                        $cnt = 1;
-                        while ($row = $queries['data']->fetch_row()):
-                          
-                      ?>
+                  <div class="">
+                    <table class="table datatable">
+                      <thead>
                         <tr>
-                          <td><?= $cnt ?></td>
-                          <td colspan="2">
-                            <?= $row[1] ?>
-                            <p><?= substr($row[2], 0, 50) ?>...</p>
-                          </td>
-                          <td style="width: 150px">
-                            <a href="<?= BASE_URL.'/queries_view.php?id='.$row[0] ?>"><i class="mdi mdi-eye"></i> View</a>
-                            <a href="<?= BASE_URL.'/queries_update.php?id='.$row[0] ?>"><i class="mdi mdi-pencil"></i> Update</a>
-                          </td>
+                          <th>#</th>
+                          <th>Query</th>
+                          <th>answer</th>
+                          <th></th>
                         </tr>
-                      <?php
-                        $cnt++;
-                        endwhile;
-                      ?>
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        <?php
+                          $cnt = 1;
+                          while ($row = $queries['data']->fetch_row()):
+                            
+                        ?>
+                          <tr>
+                            <td><?= $cnt ?></td>
+                            <td>
+                              <?= $row[1] ?>
+                            </td>
+                            <td>
+                              <p><?= substr($row[2], 0, 50) ?>...</p>
+                            </td>
+                            <td style="width: 150px">
+                              <a href="<?= BASE_URL.'/queries_view.php?id='.$row[0] ?>"><i class="mdi mdi-eye"></i> View</a>
+                              <a href="<?= BASE_URL.'/queries_update.php?id='.$row[0] ?>"><i class="mdi mdi-pencil"></i> Update</a>
+                            </td>
+                          </tr>
+                        <?php
+                          $cnt++;
+                          endwhile;
+                        ?>
+                      </tbody>
+                    </table>
+                  </div>
                   
                 </div>
             </div>

@@ -8,6 +8,7 @@ if(!isLoggedIn())
 $user = user($conn, $_SESSION["id"]);
 $queries = queries($conn, 5);
 $requests = requests($conn, 5);
+$answered_count = getAnsweredQuestionCount($conn);
 
 ?>
 
@@ -38,7 +39,7 @@ $requests = requests($conn, 5);
                   <h4 class="font-weight-normal mb-3">Answered Searches
                     <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                   </h4>
-                  <h2 class="mb-5">18</h2>
+                  <h2 class="mb-5"><?= $answered_count ?></h2>
                 </div>
               </div>
             </div>
@@ -90,7 +91,7 @@ $requests = requests($conn, 5);
                           
                       ?>
                         <tr>
-                          <td><?= $row[1] ?></td>
+                          <td> <a href="<?= BASE_URL.'/queries_view.php?id='.$row[0] ?>"><?= $row[1] ?></a></td>
                           <td><?= date('M d, Y', strtotime($row[3])) ?></td>
                         </tr>
                       <?php
@@ -143,7 +144,7 @@ $requests = requests($conn, 5);
                       ?>
                         <tr>
                           <td><?= $cnt ?></td>
-                          <td><?= $row[1] ?></td>
+                          <td> <a href="<?= BASE_URL.'/requests_view.php?id='.$row[0] ?>"><?= $row[1] ?></a> </td>
                           <td><?= date('M d, Y', strtotime($row[2])) ?></td>
                         </tr>
                       <?php

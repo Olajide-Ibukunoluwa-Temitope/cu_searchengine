@@ -40,9 +40,10 @@ $queries = requests($conn);
                 <div class="card-body">
                   <h4 class="card-title">Requested Queries</h4>
                   <div class="table-responsive">
-                    <table class="table">
+                    <table class="table datatable">
                       <thead>
                         <tr>
+                          <th>#</th>
                           <th>
                             Query
                           </th>
@@ -54,13 +55,12 @@ $queries = requests($conn);
                       <tbody>
                         <?php
                         $cnt = 1;
-                        if(!empty($queries)):
-                          while ($row = $queries['data']->fetch_row()):
+                        while ($row = $queries['data']->fetch_row()):
                             
                         ?>
                           <tr>
                             <td><?= $cnt ?></td>
-                            <td colspan="2">
+                            <td>
                               <?= substr($row[1], 0, 50) ?>
                             </td>
                             <td style="width: 150px">
@@ -70,14 +70,6 @@ $queries = requests($conn);
                         <?php
                           $cnt++;
                           endwhile;
-                        else:?> 
-                          <tr>
-                            <td colspan="3">
-                              nothing here
-                            </td>
-                          </tr>
-                      <?php
-                      endif;
                       ?>
 
                       </tbody>

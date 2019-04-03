@@ -35,6 +35,27 @@ sql;
     return null; // no result
 }
 
+function getAnsweredQuestionCount($conn)
+{
+    // fetch total rows
+    // same query without LIMIT
+    $resultsCount = <<<count
+        SELECT id
+        FROM requests
+        WHERE is_answered = 1;
+count;
+    
+    $resultsCount = $conn->query($resultsCount);
+
+    $results = boolval($resultsCount) ? true : false;
+    if ($results) {
+        return $resultsCount->num_rows;
+    }
+
+    return 0; // no result
+
+}
+
 function requests($conn, $limit = 50, $offset = 0, $page = 1)
 {
     $search = [];
