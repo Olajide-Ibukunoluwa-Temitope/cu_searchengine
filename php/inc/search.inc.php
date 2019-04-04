@@ -95,16 +95,6 @@ count;
         return [$results, $queryTime, $allResults->num_rows];
     }
 
-
-    $now = date('Y-m-d h:i:s');
-
-    $insertQuery = <<<sql
-        INSERT INTO q_and_a(query, created_at, updated_at)
-        VALUES('$query', '$now', '$now');
-sql;
-
-    $conn->query($insertQuery);
-
     return null; // no result
 }
 
