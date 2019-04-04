@@ -45,7 +45,7 @@ $content = $result[2];
 		<div class="col-sm-3">
 			<div class="card" style="height: 350px; background-color: #dee2e6">
 				<div class="card-body text-white">
-					<a href="../homepage.php">
+					<a href="../index.php">
 						<img src="../assets/images/cu_searchengine2.jpeg" style="width: 200px; height: 100px;">
 					</a>
 					<div class="font-weight-bold" style="font-size: 30px; font-family: Times New Roman, Times, serif">

@@ -11,7 +11,7 @@ require_once "inc/search.inc.php";
 
 $get = $_GET; // shorthand access
 if (!isset($get['q']) || $get['q'] === "") {
-    header("Location: ../homepage.php");
+    header("Location: ../index.php");
 }
 
 // search query
@@ -61,7 +61,7 @@ if (is_array($results)) {
       <div class="row">
         <div class="col-md-10" style="margin-right: 80%;">
           <div class="navbar-header">
-            <a class="navbar-brand mt-4" href="../../homepage.php">
+            <a class="navbar-brand mt-4" href="../index.php">
               <img width="110" height="27" src='../assets/images/cu_searchengine2.jpeg'/>
             </a>
           </div>

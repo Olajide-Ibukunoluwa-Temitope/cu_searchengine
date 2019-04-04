@@ -11,7 +11,7 @@ require_once "inc/search.inc.php";
 
 $get = $_GET; // shorthand access
 if (!isset($get['q']) || $get['q'] === "") {
-    header("Location: ../homepage.php");
+    header("Location: ../index.php");
 }
 
 // search query
