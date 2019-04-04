@@ -36,7 +36,7 @@ $answered_count = getAnsweredQuestionCount($conn);
               <div class="card bg-gradient-danger card-img-holder text-white">
                 <div class="card-body">
                   <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>
-                  <h4 class="font-weight-normal mb-3">Answered Searches
+                  <h4 class="font-weight-normal mb-3">Recent Updates
                     <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-5"><?= $answered_count ?></h2>
@@ -47,7 +47,7 @@ $answered_count = getAnsweredQuestionCount($conn);
               <div class="card bg-gradient-info card-img-holder text-white">
                 <div class="card-body">
                   <img src="images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image"/>                  
-                  <h4 class="font-weight-normal mb-3">Logged Searches
+                  <h4 class="font-weight-normal mb-3">All Queries
                     <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                   </h4>
                   <h2 class="mb-5"><?= empty($queries)? 0 : $queries['total_count'] ?></h2>
@@ -71,7 +71,7 @@ $answered_count = getAnsweredQuestionCount($conn);
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Recent Searches</h4>
+                  <h4 class="card-title">Queries</h4>
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -79,9 +79,9 @@ $answered_count = getAnsweredQuestionCount($conn);
                           <th>
                             Query
                           </th>
-                          <th>
+                          <!-- <th>
                             Time/Date
-                          </th>
+                          </th> -->
                         </tr>
                       </thead>
                       <tbody>
@@ -92,7 +92,7 @@ $answered_count = getAnsweredQuestionCount($conn);
                       ?>
                         <tr>
                           <td> <a href="<?= BASE_URL.'/queries_view.php?id='.$row[0] ?>"><?= $row[1] ?></a></td>
-                          <td><?= date('M d, Y', strtotime($row[3])) ?></td>
+                          <!-- <td><?= date('M d, Y', strtotime($row[3])) ?></td> -->
                         </tr>
                       <?php
                         endwhile;
